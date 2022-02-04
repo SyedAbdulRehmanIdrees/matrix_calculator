@@ -599,7 +599,6 @@ bool isNumber(string line, int start){
         if(isValidOp(line[i])) break;
         
         if(!(line[i] >= '0' && line[i] <= '9')){
-            cout << line[i] << endl;
             return false;
         }
     }
