@@ -9,6 +9,7 @@ int C[rows][cols];
 
 bool myStrCmp(string, string, int, int);
 string slice(string, int, int);
+string removeChar(string, char);
 string getField(string, int);
 bool isValidMatrixName(char);
 bool isValidOp(char);
@@ -35,7 +36,7 @@ int main(){
         cout << ">> ";
         getline(cin, line);
 
-        parseLine(line);
+        parseLine(removeChar(line, ' '));
     }
 }
 
@@ -106,15 +107,7 @@ void parseLine(string input){
         }
     }
     else if(isValidMatrixName(input[0]) && input[1] == '=' && isNumber(input, 2) && input[input.length()-2] == '*' && isValidMatrixName(input[input.length()-1])){
-        if(input[3] == '+'){
-            matrixAddition(input[2], input[4]);
-        }
-        else if(input[3] == '-'){
-            matrixSubtraction(input[2], input[4]);
-        }
-        else if(input[3] == '*'){
-            matrixMultiplication(input[2], input[4]);
-        }
+        scalarMultiplication(convertToInt(slice(input, 2, input.length() - 2)), input[input.length() - 1]);
     }
     else {
         cout << "Invalid input" << endl;
@@ -221,7 +214,7 @@ bool isIdentity(char m){
                 }
             }
         }
-    }
+    }string strip(string, char);
 
     return true;
 }
@@ -603,12 +596,25 @@ bool isValidOp(char op){
 
 bool isNumber(string line, int start){
     for(int i = start; i < line.length(); i++){
-        if(!isValidOp(line[i])){
-            if(!(line[i] >= '0' && line[i] <= '9')){
-                return false;
-            }
+        if(isValidOp(line[i])) break;
+        
+        if(!(line[i] >= '0' && line[i] <= '9')){
+            cout << line[i] << endl;
+            return false;
         }
     }
 
     return true;
+}
+
+string removeChar(string s, char c){
+    string tmp = "";
+
+    for(int i = 0; i < s.length(); i++){
+        if(s[i] == c) continue;
+
+        tmp += s[i];
+    }
+
+    return tmp;
 }
