@@ -214,7 +214,7 @@ bool isIdentity(char m){
                 }
             }
         }
-    }string strip(string, char);
+    }
 
     return true;
 }
