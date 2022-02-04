@@ -437,7 +437,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += A[i][k] * B[k][i];
+                    sum += A[i][k] * B[k][j];
                 }
 
                 C[i][j] = sum;
@@ -450,7 +450,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += B[i][k] * A[k][i];
+                    sum += B[i][k] * A[k][j];
                 }
 
                 C[i][j] = sum;
@@ -463,7 +463,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += A[i][k] * C[k][i];
+                    sum += A[i][k] * C[k][j];
                 }
 
                 C[i][j] = sum;
@@ -476,7 +476,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += C[i][k] * A[k][i];
+                    sum += C[i][k] * A[k][j];
                 }
 
                 C[i][j] = sum;
@@ -489,7 +489,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += B[i][k] * C[k][i];
+                    sum += B[i][k] * C[k][j];
                 }
 
                 C[i][j] = sum;
@@ -502,7 +502,7 @@ void matrixMultiplication(char m1, char m2){
                 sum = 0;
 
                 for(int k = 0; k < cols; k++){
-                    sum += C[i][k] * B[k][i];
+                    sum += C[i][k] * B[k][j];
                 }
 
                 C[i][j] = sum;
